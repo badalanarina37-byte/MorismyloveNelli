@@ -1,0 +1,206 @@
+﻿
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light">
+    <title>Морис ♡ Нелли</title>
+    <style>
+        :root {
+            color-scheme: light !important;
+        }
+
+        body { margin: 0; font-family: 'Georgia', serif; text-align: center; color: #4a4a4a; background-color: #ffffff; }
+       
+        #welcome-screen {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('pearl.jpg');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            z-index: 1000;
+        }
+       
+        button {
+            padding: 20px 40px; font-size: 22px; cursor: pointer;
+            background: #e6dccf; border: 1px solid #d2c4b5;
+            border-radius: 50px; color: #5a4f44;
+            transition: transform 0.2s;
+        }
+        button:hover { transform: scale(1.05); }
+       
+        #main-content { display: none; padding: 20px; background-image: url('pearl.jpg'); background-attachment: fixed; min-height: 100vh; }
+       
+        .container {
+            max-width: 600px; margin: 0 auto;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 30px 20px; border-radius: 15px;
+            backdrop-filter: blur(5px);
+            box-sizing: border-box;
+        }
+       
+        .container img { width: 100%; display: block; margin: 20px 0; border-radius: 5px; }
+        .qr-img { max-width: 200px; margin: 20px auto; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+
+        /* Элегантный стиль для фото на ПК */
+        .wedding-photo {
+            width: 100%;
+            height: auto; 
+            background: #ffffff; 
+            padding: 8px; 
+            box-sizing: border-box;
+            margin: 30px auto !important;
+            border-radius: 4px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.07); 
+        }
+
+        .main-title { font-size: 42px; margin-bottom: 10px; color: #3a3a3a; }
+        .wedding-date { font-size: 24px; font-weight: bold; margin-top: 0; color: #5a5a5a; }
+        .venue-title { font-size: 26px; font-weight: bold; color: #3a3a3a; }
+        .venue-text { font-size: 20px; line-height: 1.6; }
+       
+        .program-list { text-align: left; max-width: 400px; margin: 0 auto; padding: 0; list-style: none; font-size: 18px; line-height: 2; }
+        .program-list li { margin-bottom: 10px; border-bottom: 1px dashed rgba(74, 74, 74, 0.3); padding-bottom: 5px; }
+        .program-time { font-weight: bold; color: #5a4f44; margin-right: 10px; }
+
+        .init-reveal, .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+        }
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Усиленная адаптивность под мобильные */
+        @media (max-width: 768px) {
+            body, #welcome-screen, #main-content {
+                background-color: #ffffff !important;
+            }
+            
+            #main-content {
+                background-attachment: scroll !important; 
+                background-size: cover !important;
+                background-position: center !important;
+                padding: 10px !important;
+            }
+
+            .container {
+                background: rgba(255, 255, 255, 0.95) !important; 
+                padding: 25px 15px !important;
+                width: 100% !important;
+            }
+
+            /* Спасаем фото от черных рамок браузера: убираем белый фон-подложку на смартфонах */
+            .wedding-photo {
+                background: transparent !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+                border-radius: 8px !important;
+            }
+
+            .main-title { font-size: 32px !important; }
+            .wedding-date { font-size: 20px !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="welcome-screen">
+        <h1 style="background: rgba(255,255,255,0.3); padding: 10px;">Морис ♡ Нелли</h1>
+        <button onclick="startInvitation()">Открыть приглашение</button>
+    </div>
+
+    <div id="main-content">
+        <div class="container">
+            <section class="init-reveal">
+                <h1 class="main-title">Морис ♡ Нелли</h1>
+                <p class="wedding-date">23 августа 2026 год</p>
+                <p><em>«Место для счастья — здесь, время для счастья — сейчас»</em></p>
+                <img src="decor1.png" alt="Декор 1">
+            </section>
+
+            <section class="reveal">
+                <h2>Дорогие друзья и родные!</h2>
+                <p style="font-size: 18px; line-height: 1.6;">Мы рады сообщить вам, что мы женимся!<br>
+                Приглашаем вас отпраздновать это событие вместе с нами. Обещаем много улыбок, красивых моментов, объятий и танцев до упаду. Ваше присутствие — лучший подарок для нас!</p>
+            </section>
+
+            <section>
+                <h2 class="reveal">Моменты любви</h2>
+                <img src="foto1.jpg" alt="Моменты любви 1" class="wedding-photo reveal">
+                <img src="foto2.jpg" alt="Моменты любви 2" class="wedding-photo reveal">
+                <img src="foto3.jpg" alt="Моменты любви 3" class="wedding-photo reveal">
+            </section>
+
+            <section style="margin: 40px 0;" class="reveal">
+                <h3 class="venue-title">Торжество состоится</h3>
+                <p class="venue-text">23 августа 2026 года<br>Банкетный зал "Удача"<br>г. Буденновск, Тополиный переулок, 9 Б</p>
+                <img src="decor2.png" alt="Декор 2">
+            </section>
+
+            <section style="margin: 40px 0;" class="reveal">
+                <h2>Программа дня</h2>
+                <ul class="program-list">
+                    <li><span class="program-time">16:00</span> — Сбор гостей и Выездная церемония</li>
+                    <li><span class="program-time">17:30</span> — Начало банкета</li>
+                </ul>
+            </section>
+
+            <section class="reveal" style="margin: 40px 0;">
+                <h2>Дресс-код</h2>
+                <p style="font-size: 18px;">Мы будем рады любому вашему образу.</p>
+            </section>
+
+            <section class="reveal" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(74,74,74,0.2);">
+                <p style="font-size: 18px; padding: 0 10px;">Сохраним моменты вместе: сканируйте QR и делитесь прекрасными моментами с нашего торжества</p>
+               
+                <a href="https://cloud.mail.ru/public/CMPK/ozzgNoDjw" target="_blank" title="Перейти в Облако">
+                    <img src="qr.png" alt="QR код для фото" class="qr-img">
+                </a>
+               
+                <p style="font-size: 16px; margin-top: 5px;"><a href="https://cloud.mail.ru/public/CMPK/ozzgNoDjw" target="_blank" style="color: #5a4f44;">Или нажмите здесь, чтобы открыть ссылку</a></p>
+               
+                <p style="margin-top: 40px; font-size: 22px;"><strong>С уважением,<br>Морис и Нелли</strong></p>
+            </section>
+        </div>
+    </div>
+
+    <audio id="myAudio" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function startInvitation() {
+            document.getElementById('welcome-screen').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+           
+            var audio = document.getElementById('myAudio');
+            if (audio) { audio.play(); }
+           
+            var initBlock = document.querySelector('.init-reveal');
+            if (initBlock) { initBlock.classList.add('visible'); }
+           
+            revealElements();
+        }
+
+        function revealElements() {
+            var reveals = document.querySelectorAll('.reveal');
+            var windowHeight = window.innerHeight;
+           
+            for (var i = 0; i < reveals.length; i++) {
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 80; 
+               
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('visible');
+                }
+            }
+        }
+
+        window.addEventListener('scroll', revealElements);
+    </script>
+</body>
+</html>
+
